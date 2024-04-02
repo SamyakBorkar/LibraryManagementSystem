@@ -33,12 +33,60 @@ class BOOK {
     public static void displayAvailibility(boolean x){
     	if(x==true){
         	System.out.println("Book is Available");
+        	
         }
         
         else{
         	System.out.println("Book is not Available");
         }
         
+    }
+}
+
+class STUDENT{
+    private String name;
+    private String regNumber;
+    private int booksIssued;
+
+    public STUDENT(String name, String regNumber,int books) {
+        this.name = name;
+        this.regNumber = regNumber;
+        this.booksIssued = books;
+    }
+    
+    public static boolean isValidStudent(String regNumber){
+    	if(regNumber.length() !=10){
+    		return false;
+    	}
+    	else{
+    	String year = regNumber.substring(0, 4);
+        String dept = regNumber.substring(4, 7);
+        String rollno= regNumber.substring(7, 10);
+    	
+    	int YR, RN;
+    	
+    	YR=Integer.parseInt(year);
+    	RN=Integer.parseInt(rollno);
+    	
+    	if(YR<2018||YR>2026){
+    	 return false;
+    	 
+    	}
+    	
+    	
+    	else if(RN<1|| RN >100){
+    		return false;
+    	}
+    	
+    	else if(!(dept.equals("BIT") || dept.equals("BCS") || dept.equals("BME") ||
+              dept.equals("BCE") || dept.equals("BEL") || dept.equals("BCH"))){
+              	return false;
+              	
+              }
+         else{
+         	return true ;
+         }
+    	}
     }
 }
 
