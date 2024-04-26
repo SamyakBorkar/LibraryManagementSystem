@@ -105,7 +105,10 @@ class LIBRARIAN{
 		}
 		
 	}
-//
+	String Issue(String BookName){
+		S2.booksIssued++;
+		return BookName+" " + "Issued by"+ " "+S2.name;
+	}
 }
 
 class LibraryManagement {
@@ -127,7 +130,7 @@ class LibraryManagement {
 			System.out.println(" You Can't Issue More than 5 Books");
 		}
 		else{
-
+			System.out.println(Lib.Issue("Ashok_Kamathne"));
 		}
         	}
         	else{
