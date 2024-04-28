@@ -96,12 +96,12 @@ class STUDENT{
 
 class LIBRARIAN{
 	STUDENT S2 = new STUDENT("Samyak", "2022BIT037");
-	void checkNumberOfBooksIssued(){
+	int checkNumberOfBooksIssued(){
 		if(S2.booksIssued>=5){
-			System.out.println("Cant Issue more than 5 Books");
+			return -1;
 		}
 		else{
-			System.out.println("No of Books Issued are :"+S2.booksIssued);
+			return S2.booksIssued;
 		}
 		
 	}
@@ -126,7 +126,7 @@ class LibraryManagement {
         		System.out.println("Student is not Valid");
         	}
         }
-       Lib.checkNumberOfBooksIssued();
+      	System.out.println(Lib.checkNumberOfBooksIssued());
         
     }
 }
