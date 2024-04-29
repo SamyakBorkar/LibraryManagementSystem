@@ -44,7 +44,7 @@ class BOOK {
 }
 
 class STUDENT{
-    private String name;
+    public static String name;
     private String regNumber;
     public static int booksIssued;
 	
@@ -105,6 +105,7 @@ class LIBRARIAN{
 		}
 		
 	}
+//
 }
 
 class LibraryManagement {
@@ -121,12 +122,19 @@ class LibraryManagement {
         	boolean st = student.isValidStudent("2022BIT037");
         	if(st==true){
         		System.out.println("Student is Valid");
+        		int Numberissuebooks= Lib.checkNumberOfBooksIssued();
+		if(Numberissuebooks>=5){
+			System.out.println(" You Can't Issue More than 5 Books");
+		}
+		else{
+
+		}
         	}
         	else{
         		System.out.println("Student is not Valid");
         	}
         }
-      	System.out.println(Lib.checkNumberOfBooksIssued());
+		
         
     }
 }
