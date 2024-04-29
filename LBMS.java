@@ -46,12 +46,15 @@ class BOOK {
 class STUDENT{
     private String name;
     private String regNumber;
-    private int booksIssued;
-
-    public STUDENT(String name, String regNumber,int books) {
+    public static int booksIssued;
+	
+    public STUDENT(){
+    	
+    }	
+    public STUDENT(String name, String regNumber) {
         this.name = name;
         this.regNumber = regNumber;
-        this.booksIssued = books;
+        this.booksIssued = 4;
     }
     
     public static boolean isValidStudent(String regNumber){
@@ -88,16 +91,42 @@ class STUDENT{
          }
     	}
     }
+    
+}
+
+class LIBRARIAN{
+	STUDENT S2 = new STUDENT("Samyak", "2022BIT037");
+	void checkNumberOfBooksIssued(){
+		if(S2.booksIssued>=5){
+			System.out.println("Cant Issue more than 5 Books");
+		}
+		else{
+			System.out.println("No of Books Issued are :"+S2.booksIssued);
+		}
+		
+	}
 }
 
 class LibraryManagement {
     public static void main(String args[]) {
         System.out.println("Welcome To SGGSIE&T Library ");
         BOOK book = new BOOK("C_Programming", "Samyak");
+        STUDENT student = new STUDENT();
+        LIBRARIAN Lib = new LIBRARIAN();
+        
+        
         boolean RES = book.isAvailable("C_Programming", "Ashok_Kamathne");
         book.displayAvailibility(RES);
-        boolean RES1 = book.isAvailable("Java_Programming", "Ashok_Kamathne");
-        book.displayAvailibility(RES1);
+        if(RES==true){
+        	boolean st = student.isValidStudent("2022BIT037");
+        	if(st==true){
+        		System.out.println("Student is Valid");
+        	}
+        	else{
+        		System.out.println("Student is not Valid");
+        	}
+        }
+       Lib.checkNumberOfBooksIssued();
         
     }
 }
